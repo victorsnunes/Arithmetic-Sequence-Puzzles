@@ -2,6 +2,7 @@
 :- use_module(library(clpfd)).
 :- use_module(library(lists)).
 
+
 %solve(+InputBoard, -OutputBoard)
 solve(InputBoard, OutputBoard) :- length(InputBoard, BoardSize), length(OutputBoard, BoardSize),
 								  checkHorizontal(InputBoard, OutputBoard), 
@@ -25,6 +26,7 @@ solveLine(InputLine, OutputLine) :- length(InputLine, LineSize), length(OutputLi
 									element(N1Position, OutputLine, N1), element(N2Position, OutputLine, N2),
 									fillRest(OutputLine, [N1Position, N2Position, N3Position], LineSize).
 
+
 %findLineNumber(+InputLine, -N3, -N3Position)
 findLineNumber(InputLine, N3, N3Position) :- element(N3Position, InputLine, N3), N3 #\= -1.
 
@@ -45,9 +47,6 @@ fillRest(OutputLine, [N1Pos, N2Pos, N3Pos], Index) :- (N1Pos #= Index), NewIndex
 fillRest(OutputLine, [N1Pos, N2Pos, N3Pos], Index) :- (N2Pos #= Index), NewIndex is Index - 1,  fillRest(OutputLine, [N1Pos, N2Pos, N3Pos], NewIndex).
 fillRest(OutputLine, [N1Pos, N2Pos, N3Pos], Index) :- (N3Pos #= Index), NewIndex is Index - 1,  fillRest(OutputLine, [N1Pos, N2Pos, N3Pos], NewIndex).
 fillRest(OutputLine, [N1Pos, N2Pos, N3Pos], Index) :- element(Index, OutputLine, -1), NewIndex is Index - 1,  fillRest(OutputLine, [N1Pos, N2Pos, N3Pos], NewIndex).
-
-
-
 
 
 checkVertical(InputBoard, OutputBoard) :- transpose(InputBoard, InputBoardTransposed), transpose(OutputBoard, OutputBoardTransposed), 
