@@ -4,7 +4,8 @@
 
 %solve(+InputBoard, -OutputBoard)
 solve(InputBoard, OutputBoard) :- length(InputBoard, BoardSize), length(OutputBoard, BoardSize),
-								  checkHorizontal(InputBoard, OutputBoard), checkVertical(InputBoard, OutputBoard),
+								  checkHorizontal(InputBoard, OutputBoard), 
+								  checkVertical(InputBoard, OutputBoard),
 								  append(OutputBoard, PlainOutputBoard), labeling([], PlainOutputBoard).
 
 
@@ -35,7 +36,7 @@ constrainNumbers([N1, N2, N3], [N1Position, N2Position, N3Position]) :- C in 1..
 													(N3 #= N1 + C #/\ N1 #= N2 + C #/\ N2Position #< N1Position #/\ N1Position #< N3Position) + 
 													(N1 #= N3 + C #/\ N3 #= N2 + C #/\ N2Position #< N3Position #/\ N3Position #< N1Position) +
 													(N2 #= N1 + C #/\ N1 #= N3 + C #/\ N3Position #< N1Position #/\ N1Position #< N2Position) +
-													(N1 #= N2 + C #/\ N2 #= N3 + C #/\ N4Position #< N2Position #/\ N2Position #< N1Position) #= 1.
+													(N1 #= N2 + C #/\ N2 #= N3 + C #/\ N3Position #< N2Position #/\ N2Position #< N1Position) #= 1.
 
 
 %fillRest(-OutputLine, +[N1Pos, N2Pos, N3Pos], +Index)
@@ -45,7 +46,13 @@ fillRest(OutputLine, [N1Pos, N2Pos, N3Pos], Index) :- (N2Pos #= Index), NewIndex
 fillRest(OutputLine, [N1Pos, N2Pos, N3Pos], Index) :- (N3Pos #= Index), NewIndex is Index - 1,  fillRest(OutputLine, [N1Pos, N2Pos, N3Pos], NewIndex).
 fillRest(OutputLine, [N1Pos, N2Pos, N3Pos], Index) :- element(Index, OutputLine, -1), NewIndex is Index - 1,  fillRest(OutputLine, [N1Pos, N2Pos, N3Pos], NewIndex).
 
-checkVertical(_, _).
+
+
+
+
+checkVertical(InputBoard, OutputBoard) :- transpose(InputBoard, InputBoardTransposed), transpose(OutputBoard, OutputBoardTransposed), 
+										  checkHorizontal(InputBoardTransposed, OutputBoardTransposed).
 
 
 %solve([[-1, -1, 2, -1], [-1, -1, -1, 6], [1, -1, -1, -1], [-1, 5, -1, -1]], Solution).
+%solve([[-1, -1, -1, 4, -1], [-1, -1, -1, -1, 5], [3, -1, -1, -1, -1], [-1, -1, 5, -1, -1], [-1, 7, -1, -1, -1]], Solution).
