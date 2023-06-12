@@ -61,10 +61,10 @@
 
 %com max_regret
 %step - more than 370s
-%enum - 
-%bisect - 
-%median - 
-%middle - 
+%enum - more than 370s
+%bisect - more than 370s
+%median - more than 370s
+%middle - 148,354s
 
 %com impact
 %step - 
