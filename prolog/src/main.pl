@@ -11,11 +11,18 @@
 %max - V
 %ff - V
 %anti_first_fail - V
-%occurrence - 
+%occurrence - V
 %ffc - V
-%max_regret - Muito tempo
-%impact - X
+%max_regret - 
+%impact - 
 %dom_w_deg - V
+
+%com leftmost
+%step - more than 370s
+%enum - more than 370s
+%bisect - 
+%median - 
+%middle - 
 
 %com min
 %step - more than 370s
@@ -40,10 +47,10 @@
 
 %occurrence
 %step - 63,135s
-%enum - 2,2238s
+%enum - 2,238s
 %bisect - more than 370s
-%median - 
-%middle - 
+%median - 82,782s
+%middle - 166,464s
 
 %com ff
 %step - 294,055s
@@ -51,6 +58,20 @@
 %bisect - 311,006s
 %median - 206,980s
 %middle - 204,424s
+
+%com max_regret
+%step - more than 370s
+%enum - 
+%bisect - 
+%median - 
+%middle - 
+
+%com impact
+%step - 
+%enum - 
+%bisect - 
+%median - 
+%middle - 
 
 %com ffc
 %step - 5,658s
@@ -62,7 +83,7 @@
 %com dom_w_deg
 %step - 227,353s
 %enum - 289,519s
-%bisect - 135.608s
+%bisect - 135,608s
 %median - 228,374s
 %middle - 105,235s
 
