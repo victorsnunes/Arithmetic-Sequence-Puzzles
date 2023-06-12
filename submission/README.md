@@ -2,6 +2,12 @@
 
 ## Prolog
 
+### Installation
+
+### Use
+
+### Test Instruction
+
 ## CPLex
 
 ### Installation
